@@ -1,2 +1,4 @@
-201609201617
-Another Images Viewer.
+201609201617 - Another Images Viewer.
+
+dibuat menggunakan NW.js
+untuk javascript menggunakan jQuery dan Vue.js
