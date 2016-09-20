@@ -1,0 +1,67 @@
+.mg-0 {margin: 0px;}
+.mg-t-0 {margin-top: 0px;}
+.mg-b-0 {margin-bottom: 0px;}
+.mg-l-0 {margin-left: 0px;}
+.mg-r-0 {margin-right: 0px;}
+.pd-0 {padding: 0px;}
+.pd-t-0 {padding-top: 0px;}
+.pd-b-0 {padding-bottom: 0px;}
+.pd-l-0 {padding-left: 0px;}
+.pd-r-0 {padding-right: 0px;}
+.ff-mono {font-family: monospace;}
+
+/* ------------- override twbs ------------- */
+
+.modal-content {
+	border: 0;
+	padding: 0;
+	border-radius: 0;
+}
+
+.modal-header {
+	border:0;
+	padding:0;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	left: 0;
+	z-index: +1;
+}
+
+.modal-header .close.v2 {
+	color: #999;
+	opacity: 1;
+	font-size: 16px;
+	font-family: monospace;
+	text-shadow: none;
+	font-weight: 200;
+	margin-top: auto;
+	margin-right: 8px;
+}
+
+.img-thumbnail {
+	border: 0;
+	padding: 0;
+	border-radius:0;
+	width: 100%;
+}
+
+/* body {
+	width: 100%;
+	padding: 0;
+	margin: 0 auto;
+	position: relative;
+} */
+
+/* #gallery-modal {
+	display: none;
+}
+#gallery-modal.modal {
+	display: inline-block;
+	position: relative;
+	max-width: 90%;
+}
+
+.image-show {
+	max-width: 100%;
+} */

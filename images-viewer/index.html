@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/common.css"/>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+	</head>
+	<body>
+
+		<div id="modal" class="modal">
+			<div class="modal-dialog" v-bind:class="{'modal-lg': (modalsize === true), 'modal-sm': (modalsize === false) }">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" title="Close view."><span>&times;</span></button>
+					<button type="button" class="close v2" v-on:click="modalsize = true" title="Large image view.">[<span style="zoom:1.1;">&equiv;</span>]</button>
+					<button type="button" class="close v2" v-on:click="modalsize = null" title="Large image view.">[=]</button>
+					<button type="button" class="close v2" v-on:click="modalsize = false" title="Small image view.">[-]</button>
+				</div>
+				<div class="modal-content">
+					<img v-if="src !== null" v-bind:src="src" class="img-thumbnail center-block" />
+				</div>
+			</div>
+		</div>
+
+		<br/><!-- spasi atas -->
+
+		<div id="inp-dir" hidden>
+			<input type="file" nwdirectory v-on:change="slc_dir($event)"/>
+			<input type="file" nwdirectory v-on:change="slc_dir($event, true)"/>
+		</div>
+		<!-- <div class="container-fluid" id="inp-dir">
+			<div class="row">
+				<div class="col-xs-12">
+					<input type="file" nwdirectory v-on:change="slc_dir" class="btn btn-xs" />
+					<code v-f></code>
+				</div>
+				<div class="col-xs-6 text-right">
+					<button onclick="win.toggleFullscreen()" class="btn btn-xs">fullscreen</button>
+				</div>
+			</div>
+		</div> -->
+		<!-- <hr/> -->
+
+		<div id="gallery">
+			<ol v-show="images.length > 0">
+				<li v-for="(idx, src) in images">
+					<a href="#" v-bind:data-src="src" v-text="src" v-on:click.stop.prevent="show(idx)" title="Click to view."></a>
+					<a href="#" v-on:click.stop.prevent="images.$remove(src)" title="Remove from list.">&times;</a>
+				</li>
+			</ol>
+			<p v-show="images.length < 1" class="text-center">
+				<code>Picture not available.</code>
+			</p>
+		</div>
+		<hr/>
+
+		<p class="text-center ff-mono">
+			<small class="text-muted">
+				201609191622 - by anovsiradj
+			</small>
+		</p>
+
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/main.js"></script>
+		
+	</body>
+</html>
