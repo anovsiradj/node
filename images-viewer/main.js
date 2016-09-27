@@ -5,9 +5,12 @@ var win = nw.Window.get();
 var fs = require('fs'); // https://nodejs.org/api/fs.html
 const path = require('path'); // https://nodejs.org/api/path.html
 
-// initial
-win.showDevTools();
-console.log('Loaded.');
+// debug
+// win.showDevTools();
+// console.log('Loaded.');
+
+// definition
+const rx_allowed_ext = /\.(bmp|jpe?g|png|gifv?|svg)$/;
 
 var menu1 = new nw.Menu({ type: 'menubar' });
 var submenu1 = new nw.Menu();
@@ -23,7 +26,6 @@ submenu1.append(new nw.MenuItem({
 		$($inpdir.$el).find('input:last').get(0).click();
 	}
 }));
-
 menu1.append(new nw.MenuItem({
 	label: 'File',
 	submenu: submenu1
@@ -43,9 +45,6 @@ menu1.append(new nw.MenuItem({
 win.menu = menu1;
 
 // --------------------------------------------------------
-
-// definition
-const rx_allowed_ext = /\.(bmp|jpe?g|png|gifv?|svg)$/;
 
 // jquery/twbs/vue
 var $inpdir = new Vue({
@@ -75,8 +74,13 @@ var $gallery = new Vue({
 	data: {
 		images: [],
 	},
+	computed: {
+		total: function() {
+			return this.$data.images.length;
+		}
+	},
 	methods: {
-		show: function(idx) {
+		view: function(idx) {
 			$($mymodal.$el).modal('show');
 			$mymodal.$data.idx = idx;
 			$mymodal.$data.src = this.images[idx];
@@ -100,6 +104,7 @@ $($mymodal.$el).modal({
 	this.style.paddingRight = 0;
 	document.addEventListener('keydown', image_prevnext);
 	dox_blur();
+	this.focus();
 }).on('hidden.bs.modal', function() {
 	$mymodal.$set('src', null);
 	document.removeEventListener('keydown', image_prevnext);
@@ -111,7 +116,7 @@ function get_images(dirpath) {
 	fs.readdir(dirpath, (err, files) => { // err = null, success
 		files.forEach((filename, idx) => { // 3rd param: array itself
 			if (rx_allowed_ext.test(filename.toLowerCase())) {
-				var filepath = path.resolve(dirpath, filename)
+				var filepath = path.resolve(dirpath, filename); // get absfilepath
 				$gallery.$data.images.push(filepath);
 			}
 		});
@@ -127,10 +132,10 @@ function image_prevnext(ev) {
 	var kc = ev.keyCode;
 	if (/(37|39)/.test(kc)) {
 		ev.preventDefault();
-		var len = $gallery.$data.images.length - 1;
+		var len = $gallery.$data.total - 1;
 		var idx = $mymodal.$data.idx + (kc - 38);
 		if (idx < 0) idx = len;
 		if (idx > len) idx = 0;
-		$gallery.show(idx);
+		$gallery.view(idx);
 	}
 }
