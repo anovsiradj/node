@@ -1,1 +1,1 @@
-E:\bin\node.exe server.js
+node server.js
