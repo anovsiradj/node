@@ -1,5 +1,5 @@
 {
-	"name": "Another Images Viewer",
+	"name": "anvlabs/image-viewer",
 	"main": "index.html",
 	"window": {
 		"width": 768,

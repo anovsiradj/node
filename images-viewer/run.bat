@@ -1,7 +1,6 @@
 @echo off
-SET basepath=%~dp0
 
-start %basepath%..\..\bin\nw\nw .
+nw .
 
 exit
 
