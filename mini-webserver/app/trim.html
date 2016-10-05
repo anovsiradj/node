@@ -1,0 +1,51 @@
+<!DOCTYPE html><html>
+<head><meta charset="UTF-8"/>
+</head><body><pre>
+<h2>test.</h2>
+<b>refference:</b>
+space-unicode:
+https://msdn.microsoft.com/en-us/library/2yfce773(v=vs.94).aspx
+<script>
+String.prototype.ltrim = function(char) {
+	var that = this.trim();
+	var space = '\u0020';
+	char = char || space;
+	if (char === space) return that;
+	else char = char.slice(0, 1);
+	var m = n = 0;
+	while(n < that.length) {
+		if (that[n] === char) m++;
+		else break;
+		n++;
+	}
+	return that.substr(m);
+};
+String.prototype.rtrim = function(char) {
+	var that = this.trim();
+	var space = '\u0020';
+	char = char || space;
+	if (char === space) return that;
+	else char = char.slice(0, 1);
+	var m = 0, n = that.length-1;
+	while(n >= 0) {
+		if (that[n] === char) m--;
+		else break;
+		n--;
+	}
+	return that.slice(0, m);
+};
+String.prototype.strim = function(char) {
+	return this.ltrim(char).rtrim(char);
+};
+</script>
+
+<b><script>
+	var a = "+++++asd+++++";
+	var strip = '+';
+	document.write(a + ' ==> ' + a + '\n');
+	document.write(a + ' ==> ' + a.ltrim(strip)  + '\n');
+	document.write(a + ' ==> ' + a.rtrim(strip)  + '\n');
+	document.write(a + ' ==> ' + a.strim(strip)  + '\n');
+</script></b>
+
+</pre></body></html>
