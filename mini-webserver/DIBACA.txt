@@ -2,6 +2,6 @@
 Mini WebServer
 
 Server sederhana menggunakan node.js
-dalam menampilkan data di server.
+dalam menampilkan static-file di server.
 
 singkatnya, konsep ini kaya Apache-Server.

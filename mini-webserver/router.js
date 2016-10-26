@@ -8,7 +8,8 @@
 var fs = require('fs');
 var mime = require('mime');
 
-var fileindex = 'index.html';
+// hanya untuk root = '/'
+var root_dir_index = 'index.html';
 
 module.exports = (_req, _res) => {
 	// di node, url-param (contoh: ?a=b&c=d) termasuk dalam request url
@@ -17,22 +18,27 @@ module.exports = (_req, _res) => {
 	var reqpath = _req.url.split('?')[0];
 
 	// default
-	if (reqpath === '/') reqpath += fileindex;
+	if (reqpath === '/') reqpath += root_dir_index;
 	reqpath = './app' + reqpath;
 
 	// cek filenya dulu (sekaligus, dapatkan info-nya)
 	fs.stat(reqpath, (err, stats) => {
 		// jika gagal (bisa jadi file tidak ada)
+		// jadi, kasih error 404
 		if (err) return res_404(_res, reqpath);
+
 		// hanya baca file saja. bukan direktory, dsb
+		// jadi kasih error 403
 		if(!stats.isFile()) return res_403(_res, reqpath);
 
 		// pertama, langsung cek modifikasi file req-header
+		// ini, nantinya digunakan untuk caching.
 		var fmodif = _req.headers["if-modified-since"] || null; // formatnya: gmt
 
 		if (fmodif === null) { // oh, ini request pertama.
 			res_200(_res, stats, reqpath);
-		} else { // oh, ini request ke-n
+
+		} else { // oh, ini request ke-n (2,3,dst)
 			if (fmodif === stats.mtime.toGMTString()) { // apakah file tidak berubah?
 				res_304(_res, stats);
 			} else { // filenya berubah. perbarui
@@ -56,9 +62,8 @@ function res_200(_res, _stats, _filepath) {
 	_res.end();
 }
 // berdasarkan referensi so:22201490 dibawah,
-// 304 artinya file tidak berubah.
-// jadi tidak perlu respond data.
-// cukup 304 saja, nanti browser akan load dari cache.
+// 304 berarti file tidak berubah. maka tidak perlu respond file (sehingga bisa mengurangi traffic).
+// disisi client, browser akan otomatis load file dari cache.
 function res_304(_res, _stats) {
 	_res.writeHead(304);
 	_res.end();

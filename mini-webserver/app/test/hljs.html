@@ -1,0 +1,63 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8"/>
+<title>201610121146</title>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/agate.min.css" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//anovsiradj.github.io/cdn/jquery-liveload.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+<style>
+body {
+	background-color: #222;
+	color: #fff;
+}
+.asd {
+	background-color: blue;
+}
+</style>
+<script>
+;(function($) {
+	if (!$.liveload) return;
+	$.liveload();
+	$.liveload('../file.css');
+	$.liveload('../file.js');
+})(jQuery);
+
+// https://jsfiddle.net/falafelsoftware/zmhx6/
+;(function($, hljs) {
+	hljs.configure({
+		tabReplace: '  ',
+		languages: ['html', 'css', 'xml', 'js']
+	});
+	var sourcecode = Object.create(HTMLPreElement.prototype);
+	sourcecode.createdCallback = function() {
+		var src = this.dataset.src;
+		var lang = this.dataset.lang;
+		if (lang && lang !== '') $(this).addClass(lang);
+		if (src) {
+			var elm = this;
+			$.get(src, function(res) {
+				hljs.highlightBlock(elm);
+			});
+		} else {
+			hljs.highlightBlock(this);
+		}
+	};
+
+	document.registerElement('source-code', {
+		prototype: sourcecode,
+		extends: 'pre'
+	});
+
+})(jQuery, hljs);
+</script>
+</head><body>
+
+<pre is="source-code" data-lang='css'>Lorem ipsum
+dolor sit amet.
+hater gona hate.</pre>
+
+<pre is="source-code" data-lang='html'>Lorem ipsum
+	dolor sit amet.&lt;br/&gt;
+hater gona hate.</pre>
+
+</body></html>
