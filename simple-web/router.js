@@ -1,6 +1,6 @@
 var route = require('./routes');
 
-exports.handler = (req, res) => {
+module.exports = function(req, res) {
 	if (typeof route[req.url] === 'undefined') {
 		route['/404'](req, res);
 	} else {

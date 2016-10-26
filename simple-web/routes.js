@@ -6,11 +6,10 @@ route['/'] = route['/home'] = (req, res) => {
 	incl(req, res, './templat/home.html');
 }
 route['/about'] = (req, res) => {
-	res.write('anovsiradj');
-	res.end();
+	incl(req, res, './templat/me.html');
 }
 
-// test error
+// other error
 route['/admin'] = (req, res) => {
 	show_error(req, res, 403);
 }
@@ -18,7 +17,7 @@ route['/err'] = (req, res) => {
 	show_error(req, res, 500);
 }
 
-// ./router.js
+// special route.
 route['/404'] = (req, res) => { show_error(req, res, 404); }
 
 module.exports = route;

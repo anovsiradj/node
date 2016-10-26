@@ -3,10 +3,7 @@
 
 const port = 9000;
 
-var http = require('http');
-
-var router = require('./router');
-var server = http.createServer(router.handler);
+var server = require('http').createServer(require('./router'));
 
 // start server
 server.listen(port, () => {
