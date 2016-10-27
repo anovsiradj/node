@@ -1,6 +1,7 @@
 # byme
 bower_components
 .bower.json
+file.templat
 
 # Logs
 logs
