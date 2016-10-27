@@ -1,0 +1,59 @@
+/* hard reset */
+html, body, ul, ol,
+table, table td, table th
+.reset {
+	margin: 0px;
+	padding: 0px;
+}
+
+* {
+	-webkit-user-select: none;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+html, body, table,
+.full-size {
+	width: 100%;
+	height: 100%;
+}
+
+table {
+	border: none;
+	border-spacing: 0px;
+}
+
+#mainbar-inner, #sidebar-outer {
+	overflow: auto;
+}
+
+#sidebar a {
+	color: WindowText;
+}
+
+#sidebar-outer {}
+#sidebar-inner {
+	white-space: nowrap;
+	padding: 4px 8px;
+},
+
+#imgelm-wrapper {}
+#imgelm {
+	max-width: 100% !important;
+	vertical-align: middle;
+}
+
+
+/*
+table-layout:fixed;
+http://stackoverflow.com/a/7360516/3036312
+system font
+https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
+-webkit-user-select:none;
+http://stackoverflow.com/a/12315822/3036312
+system color
+https://www.sitepoint.com/css-system-styles/
+*/

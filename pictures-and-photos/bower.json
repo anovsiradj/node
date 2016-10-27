@@ -1,0 +1,7 @@
+{
+  "name": "anvlabs-pictures-and-photos",
+  "private": true,
+  "dependencies": {
+    "vue": "2"
+  }
+}

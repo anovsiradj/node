@@ -1,0 +1,8 @@
+{
+	"name": "anvlabs/pictures-and-photos",
+	"main": "index.html",
+	"window": {
+		"width": 768,
+		"height": 512
+	}
+}

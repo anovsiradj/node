@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="./src/assets/style.css"/>
+	</head>
+	<body style="background-color: #222;">
+		<div style="display: none;">
+			<input type="file" nwdirectory id="input_dir" onchange="vm_gallery.act_select_dir(this.value)" />
+		</div>
+		<table id="content" style="table-layout: fixed;">
+			<tbody>
+				<tr>
+					<td id="mainbar" style="text-align: center;">
+						<div id="mainbar-inner" class="full-size">
+							<table id="imgelm-wrapper" class="full-size">
+								<thead v-show="$data.msg_error !== null">
+									<tr>
+										<td v-bind:colspan="dyn_img_ready ? 3 : 1" style="background-color: InfoBackground;">
+											<h3>
+												<span v-html="$data.msg_error" style="color: InfoText;"></span>
+												<a href="javascript:void(0);" v-on:click="$data.msg_error = null">&times;</a>
+											</h3>
+										</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<img v-if='$data.opened_img' id="imgelm" v-bind:style="{ width:dyn_zoom+'%' }" v-bind:src="$data.opened_img.path" v-on:error="act_error('Cannot open image file.')" tabindex="-1"/>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</td>
+					<td id="slider" style="width: 6px; background-color: ThreeDDarkShadow;" v-show="dyn_img_ready"></td>
+					<td id="sidebar" style="width: 20%; background-color: WindowFrame;" v-show="dyn_img_ready">
+						<div id="sidebar-outer" class="full-size">
+							<div id="sidebar-inner">
+								<div v-for="img in $data.image_list">
+									<a href="#" v-on:click.prevent="act_viewimg(img)" v-bind:title="img.dir" v-text="img.file"></a>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<script src="./bower_components/vue/dist/vue.min.js"></script>
+		<script src="./src/main.js"></script>
+		<script src="./src/navigation.js"></script>
+		<script src="./src/shortcut.js"></script>
+		<script src="./src/gallery.js"></script>
+	</body>
+</html>

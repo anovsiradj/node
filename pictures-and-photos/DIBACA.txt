@@ -1,0 +1,5 @@
+201610090222, 201610262026
+[d] pictures-and-photos
+
+image viewer: versi kedua.
+menggunakan node.js + nw.js + vue.js (via bower)
