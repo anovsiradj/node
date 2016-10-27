@@ -1,3 +1,7 @@
+# byme
+bower_components
+.bower.json
+
 # Logs
 logs
 *.log
