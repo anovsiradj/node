@@ -1,5 +1,9 @@
 201609221646
-Simple Web
+[b] Simple Web
 
 Web statis sederhana menggunakan node.js,
 tanpa ketergantungan (no dependencies).
+
+Pertama membuat node.js server
+sebenarnya yg ke2, tapi yg ke1 cuma asal2an dan
+copas-buta (yg penting jalan)

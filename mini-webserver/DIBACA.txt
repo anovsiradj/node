@@ -1,7 +1,8 @@
 20160930
-Mini WebServer
+[c] Mini WebServer
 
 Server sederhana menggunakan node.js
 dalam menampilkan static-file di server.
 
-singkatnya, konsep ini kaya Apache-Server.
+singkatnya, konsep ini kaya Apache-Server,
+dimana sekedar menampilkan file2 static biasa.
