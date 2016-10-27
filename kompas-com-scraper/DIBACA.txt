@@ -1,0 +1,15 @@
+201610211552, 201610271246
+[e] kompas-com-scraper
+
+status: mbuh, ra nggenah iki.
+
+awalnya hanya bukan untuk kompas, tapi campur.
+karena belum tahu caranya, saya fokus di kompas dulu saja.
+
+tujuan dibuatnya untuk auto-repost (hasil scraping) ke blogger (blogspot)
+secara otomatis.
+
+dari percobaan saya, sudah berhasil. tapi
+gagal saat hendak mengambil 1000 post dari kompas,
+karena laptop kerja3 tidak kuat. jadinya gak jadi.
+terpaksa kill-program.

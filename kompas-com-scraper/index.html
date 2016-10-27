@@ -1,0 +1,26 @@
+<!--
+201610211552
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>KurirNews</title>
+	<link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+	<div>
+		<button onclick="fn_appreload()">reload</button>
+		<button onclick="fn_appexit()">exit</button>
+		<button onclick="fn_google_auth()" class="fn-google-uth">login</button>
+	</div>
+	<form action="javascript:void(0)" onsubmit="form_submit(this)">
+		<input type="url" name="web_target" required/>
+		<button type="submit">scrape</button>
+	</form>
+	<script src="./bower_components/jquery/dist/jquery.slim.js"></script>
+	<script src="./main.js"></script>
+	<script src="./google.js"></script>
+	<script src="./app/form.js"></script>
+</body>
+</html>

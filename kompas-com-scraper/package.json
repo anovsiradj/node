@@ -1,0 +1,15 @@
+{
+  "name": "anvlabs/kompas-com-scraper",
+  "main": "index.html",
+  "window": {
+    "width": 768,
+    "height": 512
+  },
+  "dependencies": {
+    "dblite": "^0.7.7",
+    "googleapis": "^14.1.0",
+    "htmlclean": "^2.7.7",
+    "jquery": "^3.1.1",
+    "request": "^2.75.0"
+  }
+}
