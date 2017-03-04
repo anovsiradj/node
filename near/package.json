@@ -1,0 +1,11 @@
+{
+  "name": "anvlabs/near",
+  "main": "index.html",
+  "window": {
+    "width": 768,
+    "height": 512
+  },
+  "dependencies": {
+    "nw": "sdk"
+  }
+}

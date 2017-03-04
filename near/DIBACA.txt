@@ -1,0 +1,13 @@
+[Jum, Jan  6 2017 11:20:18]
+Website (blog) saya dijadikan desktop aplikasi.
+
+INSTALASI
+Dengan menjalankan perintah:
+npm update && ./node_modules/.bin/nw .
+
+KETERANGAN
+prosesnya installnya agak lama, karena harus donlot dulu,
+lalu build webkit dan node.js dulu menjadi binary. Tapi,
+kalau di komputer anda sudah ada nw.js di env,
+cukup jalankan perintah:
+nw .
