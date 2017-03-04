@@ -4,6 +4,10 @@
 Web statis sederhana menggunakan node.js,
 tanpa ketergantungan (no dependencies).
 
-Pertama membuat node.js server
+Pertama-x membuat node.js server
 sebenarnya yg ke2, tapi yg ke1 cuma asal2an dan
-copas-buta (yg penting jalan)
+copas-buta (yg penting jalan).
+
+Pada akhir januari 2017, okto bertanya cara menggunakan
+mysql, padahal saya sendiri malah belum tahu. akhirnya
+kami coba bersama dan berhasil.
